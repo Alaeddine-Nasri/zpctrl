@@ -7,8 +7,9 @@ import { AppComponent } from "./app.component";
 import { TopBarComponent } from "./top-bar/top-bar.component";
 import { ProductListComponent } from "./product-list/product-list.component";
 import { ProductAlertsComponent } from "./product-alerts/product-alerts.component";
-import { LightMesurementComponent } from "./light-mesurement/light-mesurement.component";
+// import { LightMesurementComponent } from "./light-mesurement/light-mesurement.component";
 import { HttpClientModule } from "@angular/common/http";
+import { LightChartComponent } from "./light-chart/light-chart.component";
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { HttpClientModule } from "@angular/common/http";
     TopBarComponent,
     ProductListComponent,
     ProductAlertsComponent,
-    LightMesurementComponent,
+    // LightMesurementComponent,
+    LightChartComponent,
   ],
   bootstrap: [AppComponent],
 })
