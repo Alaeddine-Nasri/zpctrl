@@ -1,0 +1,51 @@
+.profile-sidebar {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 10px;
+  gap: 20px;
+  background-color: #2b282f;
+  height: 100vh;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-photo {
+  width: 100px;
+  height: 100px;
+  background-color: #ccc; /* Placeholder color */
+  border-radius: 50%;
+}
+
+.user-name {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.nav-item {
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.logout-button {
+  width: 50px;
+  height: 50px;
+  background-color: red;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+.logout-text {
+  font-size: 14px;
+  color: red;
+}

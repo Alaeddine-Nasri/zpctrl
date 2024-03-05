@@ -4,12 +4,12 @@ import { OnInit, ElementRef, ViewChild } from "@angular/core";
 import Chart from "chart.js/auto";
 
 @Component({
-  selector: "app-light-chart",
-  templateUrl: "./light-chart.component.html",
-  styleUrls: ["./light-chart.component.css"],
+  selector: "app-temperature-chart",
+  templateUrl: "./temperature-chart.component.html",
+  styleUrls: ["./temperature-chart.component.css"],
 })
-export class LightChartComponent implements OnInit {
-  @ViewChild("myChart", { static: true }) private chartRef: ElementRef;
+export class TemperatureChartComponent implements OnInit {
+  @ViewChild("tempChart", { static: true }) private chartRef: ElementRef;
 
   public chart: any;
 
@@ -20,7 +20,7 @@ export class LightChartComponent implements OnInit {
   createChart() {
     let context = this.chartRef.nativeElement;
     this.chart = new Chart(context, {
-      type: "line", //this denotes tha type of chart
+      type: "bar", //this denotes tha type of chart
 
       data: {
         // values on X-Axis

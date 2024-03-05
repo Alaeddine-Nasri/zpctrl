@@ -10,6 +10,9 @@ import { ProductAlertsComponent } from "./product-alerts/product-alerts.componen
 // import { LightMesurementComponent } from "./light-mesurement/light-mesurement.component";
 import { HttpClientModule } from "@angular/common/http";
 import { LightChartComponent } from "./light-chart/light-chart.component";
+import { TemperatureChartComponent } from "./temperature-chart/temperature-chart.component";
+import { ProfileSidebarModule } from "./profile-sidebar/profile-sidebar.module";
+import { DetailsRightbarComponent } from "./details-rightbar/details-rightbar.component";
 
 @NgModule({
   imports: [
@@ -17,6 +20,8 @@ import { LightChartComponent } from "./light-chart/light-chart.component";
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot([{ path: "", component: ProductListComponent }]),
+    ProfileSidebarModule,
+    DetailsRightbarComponent,
   ],
   declarations: [
     AppComponent,
@@ -25,6 +30,7 @@ import { LightChartComponent } from "./light-chart/light-chart.component";
     ProductAlertsComponent,
     // LightMesurementComponent,
     LightChartComponent,
+    TemperatureChartComponent,
   ],
   bootstrap: [AppComponent],
 })
