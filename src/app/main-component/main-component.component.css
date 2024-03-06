@@ -1,0 +1,49 @@
+/* .main-container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: #1c1a21;
+}
+
+.column {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.chart-buttons {
+  flex: 0 0 auto;
+}
+
+.chart-button {
+  height: 100px;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.chart-button:hover {
+  background-color: #ff0000;
+}
+
+.chart-button.selected {
+  background-color: #ff0000;
+}
+
+.blue-background {
+  background-color: blue;
+}
+
+.blue-div {
+  height: 100px;
+  width: 100px;
+  background-color: white;
+  margin: 10px;
+} */

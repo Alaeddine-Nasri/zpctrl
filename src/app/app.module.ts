@@ -14,6 +14,7 @@ import { TemperatureChartComponent } from "./temperature-chart/temperature-chart
 import { ProfileSidebarModule } from "./profile-sidebar/profile-sidebar.module";
 import { DetailsRightbarComponent } from "./details-rightbar/details-rightbar.component";
 import { MatIconModule } from "@angular/material/icon";
+import { MainComponentComponent } from "./main-component/main-component.component";
 
 @NgModule({
   imports: [
@@ -24,13 +25,17 @@ import { MatIconModule } from "@angular/material/icon";
     ProfileSidebarModule,
     DetailsRightbarComponent,
     MatIconModule,
+    MainComponentComponent,
+    // TemperatureChartComponent,
   ],
+
   declarations: [
     AppComponent,
     TopBarComponent,
     ProductListComponent,
     ProductAlertsComponent,
     // LightMesurementComponent,
+    // MainComponentComponent,
     LightChartComponent,
     TemperatureChartComponent,
   ],

@@ -1,0 +1,53 @@
+<!-- <app-temperature-chart style="width: 50%"></app-temperature-chart> -->
+<!-- <app-temperature-chart></app-temperature-chart> -->
+<div class="main-container">
+  <!-- First Column: Dynamic Chart Component -->
+  <div class="column">
+    <!-- <app-temperature-chart
+      *ngIf="selectedChart === 'temperature'"
+    ></app-temperature-chart> -->
+    <!-- <app-temperature-chart
+      style="background-color: aqua"
+      *ngIf="selectedChart === 'temperature'"
+    ></app-temperature-chart> -->
+    <!-- <app-light-mesurement></app-light-mesurement> -->
+  </div>
+
+  <!-- Second Column: Chart Selection Buttons -->
+  <div class="column chart-buttons">
+    <div
+      class="chart-button"
+      (click)="selectChart('temperature')"
+      [class.selected]="selectedChart === 'temperature'"
+    >
+      Temperature
+    </div>
+    <div
+      class="chart-button"
+      (click)="selectChart('line')"
+      [class.selected]="selectedChart === 'line'"
+    >
+      Line
+    </div>
+    <div
+      class="chart-button"
+      (click)="selectChart('light')"
+      [class.selected]="selectedChart === 'light'"
+    >
+      Light
+    </div>
+    <div
+      class="chart-button"
+      (click)="selectChart('battery')"
+      [class.selected]="selectedChart === 'battery'"
+    >
+      Battery
+    </div>
+  </div>
+
+  <!-- Third Column: Blue Background Divs -->
+  <div class="column blue-background">
+    <div class="blue-div"></div>
+    <div class="blue-div"></div>
+  </div>
+</div>
