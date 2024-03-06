@@ -13,6 +13,7 @@ import { LightChartComponent } from "./light-chart/light-chart.component";
 import { TemperatureChartComponent } from "./temperature-chart/temperature-chart.component";
 import { ProfileSidebarModule } from "./profile-sidebar/profile-sidebar.module";
 import { DetailsRightbarComponent } from "./details-rightbar/details-rightbar.component";
+import { MatIconModule } from "@angular/material/icon";
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import { DetailsRightbarComponent } from "./details-rightbar/details-rightbar.co
     RouterModule.forRoot([{ path: "", component: ProductListComponent }]),
     ProfileSidebarModule,
     DetailsRightbarComponent,
+    MatIconModule,
   ],
   declarations: [
     AppComponent,
