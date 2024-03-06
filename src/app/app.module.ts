@@ -13,6 +13,7 @@ import { LightChartComponent } from "./light-chart/light-chart.component";
 import { TemperatureChartComponent } from "./temperature-chart/temperature-chart.component";
 import { ProfileSidebarModule } from "./profile-sidebar/profile-sidebar.module";
 import { DetailsRightbarComponent } from "./details-rightbar/details-rightbar.component";
+import { LightMesurementComponent } from "./light-mesurement/light-mesurement.component";
 
 @NgModule({
   imports: [
@@ -28,7 +29,7 @@ import { DetailsRightbarComponent } from "./details-rightbar/details-rightbar.co
     TopBarComponent,
     ProductListComponent,
     ProductAlertsComponent,
-    // LightMesurementComponent,
+    LightMesurementComponent,
     LightChartComponent,
     TemperatureChartComponent,
   ],

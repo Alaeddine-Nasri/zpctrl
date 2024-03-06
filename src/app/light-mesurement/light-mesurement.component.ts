@@ -13,7 +13,7 @@ export class LightMesurementComponent implements OnInit {
   constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
-    this.apiService.makeApiCall().subscribe(
+   /* this.apiService.makeApiCalls().subscribe(
       (response) => {
         this.apiService.processApiResponse(response);
         this.updateLightValues();
@@ -21,7 +21,8 @@ export class LightMesurementComponent implements OnInit {
       (error) => {
         console.error("API Call Error:", error);
       }
-    );
+    );*/
+    this.apiService.makeApiCalls();
   }
 
   //   private updateLightValues(): void {
