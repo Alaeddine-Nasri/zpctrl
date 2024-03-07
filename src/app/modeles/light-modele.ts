@@ -4,9 +4,13 @@ export class LightModele {
   id: number;
   creationDate: Date;
   light: number;
-  constructor(creationDate: Date, light: number) {
+  company: string;
+  device: string;
+  constructor(creationDate: Date, light: number, company: string, device:string) {
     this.id = LightModele.nextId;
     this.creationDate = creationDate;
     this.light = light;
+    this.company = company;
+    this.device = device;
   }
 }

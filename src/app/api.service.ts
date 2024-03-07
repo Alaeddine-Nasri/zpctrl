@@ -95,9 +95,13 @@ export class ApiService {
 
   private parseLightResponse(response: any[]): LightModele[] {
     return response.map((item: any) => {
+      let path = item.path;
+      let parts = path.split('/');
       return new LightModele(
         new Date(item.creationDate),
         item.elems.light,
+        parts[1],
+        parts[3]
       )
     });
   }
