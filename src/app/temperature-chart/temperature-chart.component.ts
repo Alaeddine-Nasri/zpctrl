@@ -41,8 +41,22 @@ export class TemperatureChartComponent implements OnInit {
     }
   }
   createChart(labels: number[], temperatures: number[]) {
-    let context = this.chartRef.nativeElement;
-    const gradient = this.createGradient(context, ["#FFE3C5", "#C1F0EA"]);
+    // let context = this.chartRef.nativeElement;
+    // var context = document.getElementById("tempChart").getContext("2d");
+    const context = this.chartRef.nativeElement.getContext("2d");
+
+    if (!context) {
+      console.error("Canvas context is null or undefined.");
+      return;
+    }
+    var gradientStroke = context.createLinearGradient(500, 0, 100, 0);
+    gradientStroke.addColorStop(0, "#80b6f4");
+    gradientStroke.addColorStop(1, "#f49080");
+
+    var gradientFill = context.createLinearGradient(500, 0, 100, 0);
+    gradientFill.addColorStop(0, "rgba(128, 182, 244, 0.6)");
+    gradientFill.addColorStop(1, "rgba(244, 144, 128, 0.6)");
+
     this.chart = new Chart(context, {
       type: "line",
       data: {
@@ -51,11 +65,23 @@ export class TemperatureChartComponent implements OnInit {
           {
             label: "Temperature",
             data: temperatures,
-            borderColor: this.createGradient(context, ["blue", "cyan"]),
-            fill: false,
-            backgroundColor: gradient,
-            pointRadius: 0,
-            pointHoverRadius: 0,
+            borderColor: gradientStroke,
+            // pointBorderColor: gradientStroke,
+            // pointBackgroundColor: gradientStroke,
+            pointHoverBackgroundColor: gradientStroke,
+            pointHoverBorderColor: gradientStroke,
+            pointBorderWidth: 0,
+            pointHoverRadius: 10,
+            // pointHoverBorderWidth: 1,
+            pointRadius: 3,
+            fill: true,
+            backgroundColor: gradientFill,
+            borderWidth: 4,
+            // borderColor: this.createGradient(context, ["blue", "cyan"]),
+            // fill: false,
+            // // backgroundColor: gradient,
+            // pointRadius: 0,
+            // pointHoverRadius: 0,
           },
         ],
       },
