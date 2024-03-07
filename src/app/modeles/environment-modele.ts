@@ -2,7 +2,7 @@ export class EnvironmentModele {
   static nextId = 1;
 
   id: number;
-  creationDate: number;
+  creationDate: Date;
   co2EquivalentAccuracy: number;
   iaqAccuracy: number;
   breathVocValue: number;
@@ -13,7 +13,7 @@ export class EnvironmentModele {
   iaqValue: number;
   breathVocAccuracy: number;
   constructor(
-    creationDate: number,
+    creationDate: Date,
     co2EquivalentAccuracy: number,
     iaqAccuracy: number,
     breathVocValue: number,

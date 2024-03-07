@@ -2,7 +2,7 @@ export class BatteryModele {
   static nextId = 1;
 
   id: number;
-  creationDate: number;
+  creationDate: Date;
   degC: number;
   mA: number;
   mAh: number;
@@ -11,7 +11,7 @@ export class BatteryModele {
   health: String;
   percent: number;
   constructor(
-    creationDate: number,
+    creationDate: Date,
     degC: number,
     mA: number,
     mAh: number,

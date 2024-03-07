@@ -64,7 +64,7 @@ export class ApiService {
   private parseBatteryResponse(response: any[]): BatteryModele[] {
     return response.map((item: any) => {
       return new BatteryModele(
-        item.creationDate,
+        new Date(item.creationDate),
         item.elems.battery.degC,
         item.elems.battery.mA,
         item.elems.battery.mAh,
@@ -79,7 +79,7 @@ export class ApiService {
   private parseEnvironmentResponse(response: any[]): EnvironmentModele[] {
     return response.map((item: any) => {
       return new EnvironmentModele(
-        item.creationDate,
+        new Date(item.creationDate),
         item.elems.environment.co2EquivalentAccuracy,
         item.elems.environment.iaqAccuracy,
         item.elems.environment.breathVocValue,
@@ -96,7 +96,7 @@ export class ApiService {
   private parseLightResponse(response: any[]): LightModele[] {
     return response.map((item: any) => {
       return new LightModele(
-        item.creationDate,
+        new Date(item.creationDate),
         item.elems.light,
       )
     });
