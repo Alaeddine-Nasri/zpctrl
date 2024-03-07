@@ -1,6 +1,6 @@
-import { Component } from "@angular/core";
-// import { CommonModule } from "@angular/common";
-import { OnInit, ElementRef, ViewChild } from "@angular/core";
+import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
+import { ApiService } from "../api.service";
+import { EnvironmentModele } from "../modeles/environment-modele";
 import Chart from "chart.js/auto";
 
 @Component({
@@ -10,40 +10,71 @@ import Chart from "chart.js/auto";
 })
 export class TemperatureChartComponent implements OnInit {
   @ViewChild("tempChart", { static: true }) private chartRef: ElementRef;
-
   public chart: any;
 
+  constructor(private apiService: ApiService) {}
+
   ngOnInit(): void {
-    this.createChart();
+    this.apiService.sessions.subscribe((sessions) => {
+      if (sessions) {
+        // Assuming the second session is the environment data
+        const environmentData: EnvironmentModele[] = sessions[1];
+
+        // Extract creation dates and temperatures from the data
+        const labels = environmentData.map((data) => data.creationDate);
+        const temperatures = environmentData.map((data) => data.temperature);
+
+        // Update the chart with the new data
+        this.updateChart(labels, temperatures);
+      }
+    });
+
+    this.apiService.makeApiCalls();
   }
 
-  createChart() {
+  updateChart(labels: number[], temperatures: number[]): void {
+    if (this.chart) {
+      this.chart.data.labels = labels;
+      this.chart.data.datasets[0].data = temperatures;
+      this.chart.update();
+    } else {
+      this.createChart(labels, temperatures);
+    }
+  }
+
+  // createChart(labels: number[], temperatures: number[]): void {
+  //   const context = document.getElementById("tempChart") as HTMLCanvasElement;
+  //   this.chart = new Chart(context, {
+  //     type: "line",
+  //     data: {
+  //       labels: labels,
+  //       datasets: [
+  //         {
+  //           label: "Temperature",
+  //           data: temperatures,
+  //           borderColor: "blue",
+  //           fill: false,
+  //         },
+  //       ],
+  //     },
+  //     options: {
+  //       aspectRatio: 2.5,
+  //     },
+  //   });
+  // }
+
+  createChart(labels: number[], temperatures: number[]) {
     let context = this.chartRef.nativeElement;
     this.chart = new Chart(context, {
-      type: "bar", //this denotes tha type of chart
-
+      type: "line",
       data: {
-        // values on X-Axis
-        labels: [
-          "2022-05-10",
-          "2022-05-11",
-          "2022-05-12",
-          "2022-05-13",
-          "2022-05-14",
-          "2022-05-15",
-          "2022-05-16",
-          "2022-05-17",
-        ],
+        labels: labels,
         datasets: [
           {
-            label: "Sales",
-            data: ["467", "576", "572", "79", "92", "574", "573", "576"],
-            backgroundColor: "blue",
-          },
-          {
-            label: "Profit",
-            data: ["542", "542", "536", "327", "17", "0.00", "538", "541"],
-            backgroundColor: "limegreen",
+            label: "Temperature",
+            data: temperatures,
+            borderColor: "blue",
+            fill: false,
           },
         ],
       },
