@@ -15,6 +15,7 @@ import { ProfileSidebarModule } from "./profile-sidebar/profile-sidebar.module";
 import { DetailsRightbarComponent } from "./details-rightbar/details-rightbar.component";
 import { MatIconModule } from "@angular/material/icon";
 import { MainComponentComponent } from "./main-component/main-component.component";
+import { LightMesurementComponent } from "./light-mesurement/light-mesurement.component";
 
 @NgModule({
   imports: [
@@ -34,8 +35,7 @@ import { MainComponentComponent } from "./main-component/main-component.componen
     TopBarComponent,
     ProductListComponent,
     ProductAlertsComponent,
-    // LightMesurementComponent,
-    // MainComponentComponent,
+    LightMesurementComponent,
     LightChartComponent,
     TemperatureChartComponent,
   ],
