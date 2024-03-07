@@ -1,13 +1,13 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, Input } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
 @Component({
-  selector: 'app-details-rightbar',
+  selector: "app-details-rightbar",
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './details-rightbar.component.html',
-  styleUrl: './details-rightbar.component.css'
+  templateUrl: "./details-rightbar.component.html",
+  styleUrl: "./details-rightbar.component.css",
 })
 export class DetailsRightbarComponent {
-
+  @Input() percentage: number = 0;
 }

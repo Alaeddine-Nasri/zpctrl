@@ -1,16 +1,27 @@
-.container {
-  width: 100%;
-}
-.page-container {
+.application-container {
   width: 100%;
   height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 227, 197, 1),
+    rgba(193, 240, 234, 1)
+  );
+}
+
+.page-container {
+  width: 84%;
+  height: 90vh;
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
 .main-container {
-  height: 100vh;
+  height: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -70,23 +81,50 @@
 }
 
 .chart-button {
+  position: relative;
   width: 22%;
   height: 100%;
   border-radius: 20px;
-  background-color: white;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  padding: 0px 15px;
+  /* align-items: center; */
+  /* justify-content: center; */
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  /* background-color: white; */
+}
+
+.chart-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 6px;
+  background: linear-gradient(
+    to right,
+    rgba(255, 227, 197, 1),
+    rgba(193, 240, 234, 1)
+  );
+  -webkit-mask: linear-gradient(rgba(255, 227, 197, 1) 0 0) content-box,
+    linear-gradient(rgba(193, 240, 234, 1) 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
 }
 
 .chart-button:hover {
-  background-color: #ff0000; /* Red background on hover */
+  background: linear-gradient(
+    to right,
+    rgba(255, 227, 197, 1),
+    rgba(193, 240, 234, 1)
+  );
 }
 
 .chart-button.selected {
-  background-color: #ff0000; /* Red background for selected chart */
+  background: linear-gradient(
+    to right,
+    rgba(255, 227, 197, 1),
+    rgba(193, 240, 234, 1)
+  );
 }
 
 /************************/
@@ -103,5 +141,20 @@
   height: 100%;
   width: 48%;
   border-radius: 20px;
-  background-color: white;
+  background: linear-gradient(
+    to right,
+    rgba(255, 227, 197, 1),
+    rgba(193, 240, 234, 1)
+  );
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.title-chart-button {
+  /* color: #fff; */
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-left: 5px;
 }

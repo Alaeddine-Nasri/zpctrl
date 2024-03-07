@@ -1,67 +1,90 @@
 <!-- <app-top-bar></app-top-bar> -->
 <!-- <app-details-rightbar></app-details-rightbar> -->
-<div class="page-container">
-  <app-profile-sidebar style="width: 20%"></app-profile-sidebar>
-  <div class="main-container" style="width: 50%">
-    <div class="top-container">
-      <div>
-        <p class="title">Hello, Aladdin</p>
-        <p class="text">Welecome to MongoH yellow Dashboard</p>
-      </div>
 
-      <div class="column chart-container">
-        <app-temperature-chart
-          *ngIf="selectedChart === 'temperature'"
-          style="width: 100%"
-        >
-        </app-temperature-chart>
-        <app-light-chart
-          *ngIf="selectedChart === 'line'"
-          style="width: 100%"
-        ></app-light-chart>
+<div class="application-container">
+  <div class="page-container">
+    <app-profile-sidebar style="width: 20%"></app-profile-sidebar>
+    <div class="main-container" style="width: 55%">
+      <div class="top-container">
+        <div>
+          <p class="title">Hello, Aladdin</p>
+          <p class="text">Welecome to MongoH yellow Dashboard</p>
+        </div>
+
+        <div class="column chart-container">
+          <app-temperature-chart
+            *ngIf="selectedChart === 'temperature'"
+            style="width: 100%"
+          >
+          </app-temperature-chart>
+          <app-light-chart
+            *ngIf="selectedChart === 'line'"
+            style="width: 100%"
+          ></app-light-chart>
+        </div>
+      </div>
+      <div class="bottom-container">
+        <!-- Second Column: Chart Selection Buttons -->
+        <div class="column chart-buttons">
+          <div
+            class="chart-button"
+            (click)="selectChart('temperature')"
+            [class.selected]="selectedChart === 'temperature'"
+          >
+            <div class="row">
+              <i class="material-icons">severe_cold</i>
+              <p class="title-chart-button">Temperature</p>
+            </div>
+            <div>20°C</div>
+          </div>
+          <div
+            class="chart-button"
+            (click)="selectChart('line')"
+            [class.selected]="selectedChart === 'line'"
+          >
+            <div class="row">
+              <i class="material-icons">severe_cold</i>
+              <p class="title-chart-button">Line</p>
+            </div>
+            <div>20.02 light</div>
+          </div>
+          <div
+            class="chart-button"
+            (click)="selectChart('light')"
+            [class.selected]="selectedChart === 'light'"
+          >
+            <div class="row">
+              <i class="material-icons">light_mode</i>
+              <p class="title-chart-button">Light</p>
+            </div>
+            <div>20.02 light</div>
+          </div>
+
+          <div
+            class="chart-button"
+            (click)="selectChart('battery')"
+            [class.selected]="selectedChart === 'battery'"
+          >
+            <div class="row">
+              <i class="material-icons">battery_charging_full</i>
+              <p class="title-chart-button">Battery</p>
+            </div>
+            <div>100%</div>
+          </div>
+        </div>
+        <div class="column ads-container">
+          <div class="ad-div"></div>
+          <div class="ad-div"></div>
+        </div>
       </div>
     </div>
-    <div class="bottom-container">
-      <!-- Second Column: Chart Selection Buttons -->
-      <div class="column chart-buttons">
-        <div
-          class="chart-button"
-          (click)="selectChart('temperature')"
-          [class.selected]="selectedChart === 'temperature'"
-        >
-          Temperature
-        </div>
-        <div
-          class="chart-button"
-          (click)="selectChart('line')"
-          [class.selected]="selectedChart === 'line'"
-        >
-          Line
-        </div>
-        <div
-          class="chart-button"
-          (click)="selectChart('light')"
-          [class.selected]="selectedChart === 'light'"
-        >
-          Light
-        </div>
-        <div
-          class="chart-button"
-          (click)="selectChart('battery')"
-          [class.selected]="selectedChart === 'battery'"
-        >
-          Battery
-        </div>
-      </div>
-      <div class="column ads-container">
-        <div class="ad-div"></div>
-        <div class="ad-div"></div>
-      </div>
-    </div>
+    <!-- <app-main-component style="width: 50%"></app-main-component> -->
+    <app-details-rightbar
+      [percentage]="20"
+      style="width: 25%"
+    ></app-details-rightbar>
+    <!-- <app-light-chart style="width: 30%"></app-light-chart> -->
   </div>
-  <!-- <app-main-component style="width: 50%"></app-main-component> -->
-  <app-details-rightbar style="width: 30%"></app-details-rightbar>
-  <!-- <app-light-chart style="width: 30%"></app-light-chart> -->
 </div>
 <!-- <div class="container">
   <router-outlet></router-outlet>
