@@ -11,6 +11,14 @@ export class AppComponent {
   selectChart(chart: "temperature" | "line" | "light" | "battery"): void {
     this.selectedChart = chart;
   }
+  latestTemperature: number = 0;
+  latestLightValue: number = 0;
+  receiveLatestTemperature(latestTemperature: number) {
+    this.latestTemperature = latestTemperature;
+  }
+  receiveLatestLightValue(latestLightValue: number) {
+    this.latestLightValue = latestLightValue;
+  }
 }
 
 /*

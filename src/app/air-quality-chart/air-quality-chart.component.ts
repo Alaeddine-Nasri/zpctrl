@@ -6,17 +6,18 @@ import {
   Output,
   ViewChild,
 } from "@angular/core";
-import { ApiService } from "../api.service";
+import { CommonModule } from "@angular/common";
 import { EnvironmentModele } from "../modeles/environment-modele";
+import { ApiService } from "../api.service";
 import Chart from "chart.js/auto";
 
 @Component({
-  selector: "app-temperature-chart",
-  templateUrl: "./temperature-chart.component.html",
-  styleUrls: ["./temperature-chart.component.css"],
+  selector: "app-air-quality-chart",
+  templateUrl: "./air-quality-chart.component.html",
+  styleUrls: ["./air-quality-chart.component.css"], // Use styleUrls instead of styleUrl
 })
-export class TemperatureChartComponent implements OnInit {
-  @ViewChild("tempChart", { static: true }) private chartRef: ElementRef;
+export class AirQualityChartComponent implements OnInit {
+  @ViewChild("airChart", { static: true }) private chartRef: ElementRef;
   @Output() latestTemperatureChange = new EventEmitter<number>();
   public latestTemperature: number = 0;
 
@@ -52,7 +53,7 @@ export class TemperatureChartComponent implements OnInit {
   }
   createChart(labels: number[], temperatures: number[]) {
     // let context = this.chartRef.nativeElement;
-    // var context = document.getElementById("tempChart").getContext("2d");
+    // var context = document.getElementById("airChart").getContext("2d");
     const context = this.chartRef.nativeElement.getContext("2d");
 
     if (!context) {

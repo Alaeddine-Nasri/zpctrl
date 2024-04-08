@@ -11,9 +11,23 @@
         <div class="column chart-container">
           <app-temperature-chart
             *ngIf="selectedChart === 'temperature'"
+            (latestTemperatureChange)="receiveLatestTemperature($event)"
             style="width: 100%"
           >
           </app-temperature-chart>
+          <!-- <app-temperature-chart
+            *ngIf="selectedChart === 'line'"
+            (latestTemperatureChange)="receiveLatestTemperature($event)"
+            style="width: 100%"
+          >
+          </app-temperature-chart> -->
+
+          <!-- <app-air-quality-chart
+            *ngIf="selectedChart === 'line'"
+            style="width: 100%"
+          >
+          </app-air-quality-chart> -->
+
           <app-light-chart
             *ngIf="selectedChart === 'light'"
             style="width: 100%"
@@ -31,7 +45,7 @@
               <i class="material-icons">severe_cold</i>
               <p class="title-chart-button">Temperature</p>
             </div>
-            <div>20°C</div>
+            <div>{{ latestTemperature | number : "1.2-2" }}°C</div>
           </div>
           <div
             class="chart-button"
@@ -39,10 +53,11 @@
             [class.selected]="selectedChart === 'line'"
           >
             <div class="row">
-              <i class="material-icons">severe_cold</i>
-              <p class="title-chart-button">Line</p>
+              <i class="material-icons">water_drop</i>
+              <p class="title-chart-button">Humidity</p>
             </div>
-            <div>20.02 light</div>
+            <!-- <div>{{ Humidity }}%</div> -->
+            <div>%</div>
           </div>
           <div
             class="chart-button"
@@ -53,7 +68,8 @@
               <i class="material-icons">light_mode</i>
               <p class="title-chart-button">Light</p>
             </div>
-            <div>20.02 light</div>
+            <!-- <div>{{ latestLightValue }} lux</div> -->
+            <div>lux</div>
           </div>
 
           <div
@@ -65,7 +81,7 @@
               <i class="material-icons">battery_charging_full</i>
               <p class="title-chart-button">Battery</p>
             </div>
-            <div>100%</div>
+            <div>0%</div>
           </div>
         </div>
         <div class="column ads-container">
